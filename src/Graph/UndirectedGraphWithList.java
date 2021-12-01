@@ -3,6 +3,10 @@ package Graph;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * URL Soal: https://www.hackerrank.com/contests/graph-basic/challenges/directed-graph-list-based
+ */
+
 class UndirectedListGraph {
     LinkedList<Integer>[] conn;
     int vertex;

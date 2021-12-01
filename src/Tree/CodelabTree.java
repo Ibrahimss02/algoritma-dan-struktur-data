@@ -6,39 +6,39 @@ import java.util.Scanner;
 
 class Node{
     int data;
-    Node left, right;
+    Node2 left, right;
 
     Node(int data) {
         this.data = data;
     }
 }
 class CBTree{
-    Node root;
+    Node2 root;
 
     boolean isEmpty(){
         return root == null;
     }
 
     void insert(int newData){
-        Node newNode = new Node(newData);
+        Node2 newNode2 = new Node2(newData);
 
         if (isEmpty()) {
-            root = newNode;
+            root = newNode2;
         } else {
-            Queue<Node> q = new LinkedList<>();
+            Queue<Node2> q = new LinkedList<>();
             q.add(root);
 
             while (!q.isEmpty()) {
-                Node temp = q.poll();
+                Node2 temp = q.poll();
 
                 if (temp.left == null) {
-                    temp.left = newNode;
+                    temp.left = newNode2;
                     break;
                 } else {
                     q.add(temp.left);
                 }
                 if (temp.right == null) {
-                    temp.right = newNode;
+                    temp.right = newNode2;
                     break;
                 } else {
                     q.add(temp.right);
@@ -51,11 +51,11 @@ class CBTree{
         if (isEmpty()) {
             System.out.println("CBT Kosong!");
         } else {
-            Queue<Node> q = new LinkedList<>();
+            Queue<Node2> q = new LinkedList<>();
 
             q.add(root);
             while (!q.isEmpty()) {
-                Node temp = q.poll();
+                Node2 temp = q.poll();
                 System.out.print(temp.data + "->");
 
                 if (temp.left != null) {
@@ -68,18 +68,18 @@ class CBTree{
             System.out.println();
         }
     }
-    void printAtLevel(Node node, int level){
+    void printAtLevel(Node2 node, int level){
         //write your magic here!
         if(level == 1) {
             System.out.print(node.data + "->");
             return;
         }
-        Queue<Node> q = new LinkedList<>();
+        Queue<Node2> q = new LinkedList<>();
         q.add(root);
 
         int index = 1;
         while (!q.isEmpty()) {
-            Node temp = q.poll();
+            Node2 temp = q.poll();
 
             if(index >= Math.pow(2, level-1) && index < Math.pow(2, level)) {
                 System.out.print(temp.data + "->");
@@ -94,14 +94,14 @@ class CBTree{
             index++;
         }
     }
-    void A(Node xn){
+    void A(Node2 xn){
         if (xn == null) return;
         A(xn.left);
         System.out.printf("%d->", xn.data);
         A(xn.right);
 
     }
-    void B(Node xn) {
+    void B(Node2 xn) {
         if (xn == null) return;
         System.out.printf("%d->", xn.data);
         B(xn.left);
